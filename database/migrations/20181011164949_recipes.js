@@ -1,8 +1,16 @@
 
 exports.up = function (knex, Promise) {
     return knex.schema.createTable('recipes', function (recipes) {
-        recipes.increments();
-        recipes.text('name_recipe', 'mediumText').notNullable();
+        recipes
+            .increments();
+        recipes
+            .string('name_recipe')
+            .notNullable();
+        recipes
+            .integer('dish_id')
+            .unsigned()
+            .references('id')
+            .inTable('dishes')
     })
 };
 

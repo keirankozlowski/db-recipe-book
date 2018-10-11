@@ -1,8 +1,11 @@
 
 exports.up = function (knex, Promise) {
     return knex.schema.createTable('ingredients', function (ingredients) {
-        ingredients.increments();
-        ingredients.text('name_ingredient', 'mediumText').notNullable();
+        ingredients
+            .increments();
+        ingredients
+            .string('name_ingredient')
+            .notNullable();
     })
 };
 
